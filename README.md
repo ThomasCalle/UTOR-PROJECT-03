@@ -1,4 +1,4 @@
-# Thomas' UTOR-PROJECT-03
+# UTOR-PROJECT-03 by Jocelyn, Devarsh & Thomas
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
