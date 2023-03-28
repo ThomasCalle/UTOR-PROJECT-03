@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "title": "First Event",
+    "content": "This is the content of the first event.",
+    "user_id": 2,
+    "date": "2023-05-01T10:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "Second Event",
+    "content": "This is the content of the second event.",
+    "user_id": 3,
+    "date": "2023-05-05T15:30:00.000Z"
+  },
+  {
+    "id": 3,
+    "title": "Third Event",
+    "content": "This is the content of the third event.",
+    "user_id": 4,
+    "date": "2023-05-10T08:45:00.000Z"
+  }
+]
