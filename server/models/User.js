@@ -1,60 +1,49 @@
-console.log("Sequelize version:", require('sequelize').version);
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-const bcryptjs = require('bcryptjs');
+const mongoose = require("mongoose");
+const bcryptjs = require("bcryptjs");
 
-class User extends Model {
-  checkPassword(loginPw) {
-    return bcryptjs.compareSync(loginPw, this.password);
-  }
-}
-
-User.init(
+const userSchema = new mongoose.Schema(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
     username: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: String,
+      required: true,
       unique: true,
     },
     email: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      type: String,
+      required: true,
       unique: true,
       validate: {
-        isEmail: true,
+        validator: function (value) {
+          return /^\S+@\S+\.\S+$/.test(value);
+        },
+        message: "Invalid email address",
       },
     },
     password: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [8],
-      },
+      type: String,
+      required: true,
+      minlength: 8,
     },
   },
   {
-    hooks: {
-      async beforeCreate(newUser) {
-        newUser.password = await bcryptjs.hash(newUser.password, 10);
-        return newUser;
-      },
-      async beforeUpdate(updatedUser) {
-        updatedUser.password = await bcryptjs.hash(updatedUser.password, 10);
-        return updatedUser;
-      },
-    },
-    sequelize,
     timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'user',
+    versionKey: false,
   }
 );
+
+userSchema.pre("save", async function (next) {
+  if (!this.isModified("password")) {
+    return next();
+  }
+  const salt = await bcryptjs.genSalt(10);
+  this.password = await bcryptjs.hash(this.password, salt);
+  next();
+});
+
+userSchema.methods.checkPassword = async function (loginPw) {
+  return await bcryptjs.compare(loginPw, this.password);
+};
+
+const User = mongoose.model("User", userSchema);
 
 module.exports = User;
