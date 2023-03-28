@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "comment_text": "Great article!",
+    "user_id": 1,
+    "event_id": 1
+  },
+  {
+    "id": 2,
+    "comment_text": "I agree with you!",
+    "user_id": 2,
+    "event_id": 1
+  },
+  {
+    "id": 3,
+    "comment_text": "I disagree with you!",
+    "user_id": 3,
+    "event_id": 2
+  },
+  {
+    "id": 4,
+    "comment_text": "I agree with you!",
+    "user_id": 4,
+    "event_id": 3
+  },
+  {
+    "id": 5,
+    "comment_text": "I disagree with you!",
+    "user_id": 5,
+    "event_id": 4
+  }
+]
