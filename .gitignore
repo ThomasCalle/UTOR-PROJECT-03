@@ -1,3 +1,9 @@
+# THE FOUR HORSEMEN
+node_modules
+.node_modules
+.env
+.DS_Store
+
 # Logs
 logs
 *.log
@@ -102,3 +108,4 @@ dist
 
 # TernJS port file
 .tern-port
+
