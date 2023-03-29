@@ -5,10 +5,17 @@ const eventSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  content: {
+  description: {
     type: String,
     required: true,
     minlength: 1,
+  },
+  cost:{
+    type: Number,
+  },
+  location: {
+    type: String,
+    required: true
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
