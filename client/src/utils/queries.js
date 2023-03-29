@@ -17,7 +17,6 @@ export const GET_ALL_USERS = gql`
   }
 `;
 
-//64244c32bd45ee13c232578e
 export const GET_ONE_USER = gql`
 query User($userId: ID!) {
   user(id: $userId) {
