@@ -1,4 +1,4 @@
-const { User, Event } = require("./models");
+const { User, Event } = require("../models");
 
 const resolvers = {
   Query: {
@@ -53,4 +53,4 @@ const resolvers = {
   },
 };
 
-module.exports = { resolvers };
+module.exports = resolvers;
