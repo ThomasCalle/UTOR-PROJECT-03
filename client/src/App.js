@@ -4,14 +4,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import 'font-awesome/css/font-awesome.min.css';
 
-
 // Uncomment import statement below after building queries and mutations
 // import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
 
 // const client = new ApolloClient({
 //   uri: "/graphql",
