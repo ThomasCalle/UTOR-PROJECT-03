@@ -4,7 +4,7 @@ import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import Signup from "./Signup";
 // import LoginForm from "./LoginForm";
 
-// import Auth from "../utils/auth";
+import Auth from "../utils/auth";
 
 const AppNavbar = () => {
   // set modal display state
@@ -43,7 +43,7 @@ const AppNavbar = () => {
             </Nav>
           </Navbar.Collapse>
         </Container>
-        <button
+        {/* <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
@@ -53,7 +53,7 @@ const AppNavbar = () => {
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
-        </button>
+        </button> */}
       </Navbar>
 
       {/* set up Modal (login/signup popups) */}
