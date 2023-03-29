@@ -10,9 +10,12 @@ import {
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import "font-awesome/css/font-awesome.min.css";
 
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -48,6 +51,7 @@ function App() {
               element={<h1 className="display-2">Wrong page!</h1>}
             />
           </Routes>
+          <Footer/>
         </div>
       </Router>
     </ApolloProvider>
