@@ -10,12 +10,11 @@ import {
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "font-awesome/css/font-awesome.min.css";
+import 'font-awesome/css/font-awesome.min.css';
 
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -36,6 +35,7 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
 
 function App() {
   return (
