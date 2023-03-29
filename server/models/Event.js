@@ -26,4 +26,14 @@ const eventSchema = new mongoose.Schema({
 
 const Event = mongoose.model("Event", eventSchema);
 
+// Define the relationships between the models
+Event.schema.path('attendees').validate(function (value) {
+return value.length <= 50; // Set the maximum number of attendees for an event to 50
+}, 'The number of attendees for an event cannot exceed 50.');
+
+Event.schema.path('date').validate(function (value) {
+const currentDate = new Date();
+return value > currentDate; // Set the date for an event to be in the future
+}, 'The date for an event must be in the future.');
+
 module.exports = Event;

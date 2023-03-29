@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema(
         validator: function (value) {
           return /^\S+@\S+\.\S+$/.test(value);
         },
+        //validate:{isEmail: true},
         message: "Invalid email address",
       },
     },
