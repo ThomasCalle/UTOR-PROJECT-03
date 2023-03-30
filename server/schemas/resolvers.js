@@ -6,16 +6,16 @@ const resolvers = {
   //queries (GET route equivalent)
   Query: {
     users: async () => {
-      return await User.find().populate("event");
+      return await User.find().populate("events");
     },
     user: async (parent, { id }) => {
-      return await User.findById(id);
+      return await User.findById(id).populate("events");
     },
     events: async () => {
-      return await Event.find();
+      return await Event.find().populate("user");
     },
     event: async (parent, { id }) => {
-      return await Event.findById(id);
+      return await Event.findById(id).populate("user");
     },
   },
 
@@ -23,16 +23,13 @@ const resolvers = {
   Mutation: {
     //create a new user
     createUser: async (parent, args) => {
-      console.log("create user");
       const user = await User.create(args);
-      console.log("1");
+
       if (!user) {
-        console.log("2");
         throw new Error("Something is wrong!");
       }
-      console.log("3");
+
       const token = signToken(user);
-      console.log("4");
       return { token, user };
     },
 
@@ -55,10 +52,15 @@ const resolvers = {
     },
 
     createEvent: async (parent, args) => {
-      console.log(args)
+      console.log(args);
       const event = new Event(args);
-      console.log(event)
       await event.save();
+
+      const userId = event.user;
+      const eventId = event._id;
+
+      await User.updateOne({ _id: userId }, { $push: { events: eventId } });
+      console.log(User)
       return event;
     },
     updateEvent: async (parent, { id, ...rest }) => {
@@ -69,16 +71,6 @@ const resolvers = {
     deleteEvent: async (parent, { id }) => {
       await Event.findByIdAndRemove(id);
       return true;
-    },
-  },
-  User: {
-    events: async (parent) => {
-      return await Event.find({ user_id: parent.id });
-    },
-  },
-  Event: {
-    user: async (parent) => {
-      return await User.findById(parent.user_id);
     },
   },
 };

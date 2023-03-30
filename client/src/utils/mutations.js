@@ -25,6 +25,43 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const CREATE_EVENT = gql`
+mutation CREATE_EVENT($title: String!, $description: String!, $cost: Float!, $location: String!, $userId: ID!, $date: String!) {
+  createEvent(title: $title, description: $description, cost: $cost, location: $location, user: $userId, date: $date) {
+    id
+    title
+    description
+    cost
+    location
+    date
+  }
+}
+`;
+
+export const UPDATE_EVENT = gql `
+mutation UPDATE_EVENT($updateEventId: ID!, $title: String, $description: String, $cost: Float, $location: String, $date: String) {
+  updateEvent(id: $updateEventId, title: $title, description: $description, cost: $cost, location: $location, date: $date) {
+    id
+    title
+    description
+    cost
+    location
+    date
+    user {
+      id
+      username
+    }
+  }
+}`;
+
+export const DELETE_EVENT = gql`
+  mutation DELETE_EVENT($deleteEventId: ID!) {
+    deleteEvent(id: $deleteEventId)
+  }
+`;
+
+
 // export const UPDATE_USER = gql`
 //   mutation UPDATE_USER(
 //     $updateUserId: ID!
@@ -51,34 +88,3 @@ export const LOGIN_USER = gql`
 //     deleteUser(id: $deleteUserId)
 //   }
 // `;
-
-export const CREATE_EVENT = gql`
-mutation CREATE_EVENT($title: String!, $description: String!, $cost: Float!, $location: String!, $userId: ID!, $date: String!) {
-  createEvent(title: $title, description: $description, cost: $cost, location: $location, user_id: $userId, date: $date) {
-    id
-    title
-    description
-    cost
-    location
-    date
-  }
-}
-`;
-
-export const UPDATE_EVENT = gql `
-mutation UPDATE_EVENT($updateEventId: ID!, $title: String, $description: String, $cost: Float, $location: String) {
-  updateEvent(id: $updateEventId, title: $title, description: $description, cost: $cost, location: $location) {
-    id
-    title
-    description
-    cost
-    location
-    date
-  }
-}`;
-
-export const DELETE_EVENT = gql`
-  mutation DELETE_EVENT($deleteEventId: ID!) {
-    deleteEvent(id: $deleteEventId)
-  }
-`;
