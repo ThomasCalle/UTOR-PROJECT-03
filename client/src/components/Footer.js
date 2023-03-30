@@ -33,7 +33,7 @@ const Footer = () => {
           <section className="form-footer">
             <h5 className="text-center mb-2">Designed with ⏳ by UTOR 23-Project-3 Team: 8</h5>
             <p className="text-center mb-0">
-              <h6>&copy; 2023 All rights reserved.</h6>
+              <h6>&copy; {new Date().getFullYear()} 2023 All rights reserved.</h6>
             </p>
           </section>
         </section>

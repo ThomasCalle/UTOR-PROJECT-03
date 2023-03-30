@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.glow:focus {
+  outline: none;
+  border-color: #8b5cf6;
+  box-shadow: 0 0 5px #8b5cf6, 0 0 10px #8b5cf6, 0 0 20px #8b5cf6;
+}
+

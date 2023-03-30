@@ -1,14 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 
 import Signup from "./Signup";
 import Login from "./Login";
+import Profile from "./Profile";
 import Auth from "../utils/auth";
 
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
+
+   const handleClick = () => {
+     
+   };
 
   return (
     <>
@@ -27,7 +32,7 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   {/* <Nav.Link as={Link} to="/profile"> */}
-                  <Nav.Link as={Link} to="/">
+                  <Nav.Link onClick={handleClick}>
                     See Your Events
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
