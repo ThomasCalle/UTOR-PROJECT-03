@@ -1,31 +1,43 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub} from '@fortawesome/free-brands-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 // import './Footer.css';
 // import React from 'react';
 // import './assets/css/style.css';
+
 const Footer = () => {
   return (
-    <footer>
-      <section className="social-icons-wrapper">
-        <a href="https://github.com/jjocelynn" className="icon github" target="_blank" rel="noreferrer">
-        <FontAwesomeIcon icon ={faGithub}/>
-        </a>
-        <a href="https://github.com/devarsh2395" className="icon youtube" target="_blank" rel="noreferrer">
-        <FontAwesomeIcon icon ={faGithub}/>
-        </a>
-        <a href="https://github.com/ThomasCalle" className="icon twitter" target="_blank" rel="noreferrer">
-        <FontAwesomeIcon icon ={faGithub}/>
-        </a>
-      </section>
-      <section class="footer" id="footer">
-              <section class="form-footer">
-                <h5>Designed with ⏳ by jjocelynn, devarsh2395, ThomasCalle.</h5>
-                <p>
-                <h6>&copy; 2023 All rights reserved.</h6>
-                </p>
-      </section>
-      </section>
+    <footer className="footer mt-auto py-3 bg-dark text-white">
+      <div className="container">
+        <section className="social-icons-wrapper d-flex flex-column flex-md-row justify-content-center my-3">
+          <div className="d-flex flex-column align-items-center mx-md-2">
+            <a href="https://github.com/jjocelynn" className="icon jjocelynn" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faGithub} size="lg" style={{ color: 'green' }} />
+            </a>
+            <span>@jjocelynn</span>
+          </div>
+          <div className="d-flex flex-column align-items-center mx-md-2">
+            <a href="https://github.com/devarsh2395" className="icon devarsh2395" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faGithub} size="lg" style={{ color: 'purple' }} />
+            </a>
+            <span>@devarsh2395</span>
+          </div>
+          <div className="d-flex flex-column align-items-center mx-md-2">
+            <a href="https://github.com/ThomasCalle" className="icon ThomasCalle" target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faGithub} size="lg" style={{ color: 'lightblue' }} />
+            </a>
+            <span>@ThomasCalle</span>
+          </div>
+        </section>
+        <section className="footer" id="footer">
+          <section className="form-footer">
+            <h5 className="text-center mb-2">Designed with ⏳ by UTOR 23-Project-3 Team: 8</h5>
+            <p className="text-center mb-0">
+              <h6>&copy; 2023 All rights reserved.</h6>
+            </p>
+          </section>
+        </section>
+      </div>
     </footer>
   );
 };
