@@ -15,7 +15,19 @@ import 'font-awesome/css/font-awesome.min.css';
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Profile from "./components/Profile"; //temp
+import Profile from "./components/Profile";
+import Contact from "./components/Contact";
+
+// Add a Donation component
+function Donation() {
+  return (
+    <div className="container mt-5">
+      <h2 className="mb-3">Donation</h2>
+      <p>If you'd like to support our work, you can donate using the button below:</p>
+      <button className="btn btn-primary">Donate</button>
+    </div>
+  );
+}
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -54,6 +66,8 @@ function App() {
               element={<h1 className="display-2">Wrong page!</h1>}
             />
           </Routes>
+          <Contact />
+          <Donation />
           <Footer />
         </div>
       </Router>
