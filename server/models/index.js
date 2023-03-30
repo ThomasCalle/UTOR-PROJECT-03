@@ -1,6 +1,6 @@
-const User = require("./user");
-const Event = require("./event");
-const Comment = require("./comment");
+const User = require("./User");
+const Event = require("./Event");
+const Comment = require("./Comment");
 
 // Export the models
 module.exports = { User, Event, Comment };

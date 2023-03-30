@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
-import Signup from "./Signup";
-// import LoginForm from "./LoginForm";
 
+import Signup from "./Signup";
+import Login from "./Login";
 import Auth from "../utils/auth";
 
 const AppNavbar = () => {
@@ -23,15 +23,12 @@ const AppNavbar = () => {
               <Nav.Link as={Link} to="/">
                 Home
               </Nav.Link>
-              {/* comment out once login page is set up */}
-              <Nav.Link onClick={() => setShowModal(true)}>
-                Login/Sign Up
-              </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
-              {/* {Auth.loggedIn() ? (
+              {/* if user is logged in show users events and logout */}
+              {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to="/saved">
-                    See Your Books
+                  {/* <Nav.Link as={Link} to="/profile"> */}
+                  <Nav.Link as={Link} to="/">
+                    See Your Events
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
@@ -39,7 +36,7 @@ const AppNavbar = () => {
                 <Nav.Link onClick={() => setShowModal(true)}>
                   Login/Sign Up
                 </Nav.Link>
-              )} */}
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -68,9 +65,9 @@ const AppNavbar = () => {
           <Modal.Header closeButton>
             <Modal.Title id="signup-modal">
               <Nav variant="pills">
-                {/* <Nav.Item>
+                <Nav.Item>
                   <Nav.Link eventKey="login">Login</Nav.Link>
-                </Nav.Item> */}
+                </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey="signup">Sign Up</Nav.Link>
                 </Nav.Item>
@@ -79,9 +76,9 @@ const AppNavbar = () => {
           </Modal.Header>
           <Modal.Body>
             <Tab.Content>
-              {/* <Tab.Pane eventKey="login">
-                <LoginForm handleModalClose={() => setShowModal(false)} />
-              </Tab.Pane> */}
+              <Tab.Pane eventKey="login">
+                <Login handleModalClose={() => setShowModal(false)} />
+              </Tab.Pane>
               <Tab.Pane eventKey="signup">
                 <Signup handleModalClose={() => setShowModal(false)} />
               </Tab.Pane>
