@@ -1,58 +1,43 @@
-import React from "react";
-import { Navigate, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
 import { GET_ONE_USER } from "../utils/queries";
+import Auth from "../utils/auth";
 
-const Profile = () => {
-  const { userId } = useParams();
+const MyEvents = () => {
+  //getting the loggedin user's ID
+  const userToken = Auth.getProfile();
+  const userId = userToken.data._id;
+  console.log(userId)
 
   const { loading, data } = useQuery(GET_ONE_USER, {
     variables: { id: userId },
   });
 
-    console.log(data);
-
-  const user = data?.user || {}
-
+  console.log(data)
+ 
+  const {user} = data || [];
+  console.log(user);
 
   return (
-    <div>
-      <div className="flex-row justify-center mb-3">
-        <h2 className="col-12 col-md-10 bg-dark text-light p-3 mb-5">
-          This is {user.username}
-        </h2>
-
-        {/* <div className="col-12 col-md-10 mb-5">
-          <ThoughtList
-            thoughts={user.thoughts}
-            title={`${user.username}'s thoughts...`}
-            showTitle={false}
-            showUsername={false}
-          />
+    <>
+      {loading ? (
+        <div>
+          <h3>still loading</h3>
         </div>
-        {!userParam && (
-          <div
-            className="col-12 col-md-10 mb-3 p-3"
-            style={{ border: "1px dotted #1a1a1a" }}
-          >
-            <ThoughtForm />
-          </div>
-        )} */}
-      </div>
-    </div>
+      ) : (
+        <h3>Welcome {data}!</h3>
+      )}
+    </>
   );
 };
-export default Profile;
+export default MyEvents;
 
-
-
-
-// DASHBOARD CHESS BLOG 
-// DASHBOARD CHESS BLOG 
-// DASHBOARD CHESS BLOG 
-// DASHBOARD CHESS BLOG 
-
+// DASHBOARD CHESS BLOG
+// DASHBOARD CHESS BLOG
+// DASHBOARD CHESS BLOG
+// DASHBOARD CHESS BLOG
 
 // import React from "react";
 
@@ -93,7 +78,6 @@ export default Profile;
 
 // export default Dashboard;
 
-
-// DASHBOARD CHESS BLOG 
-// DASHBOARD CHESS BLOG 
-// DASHBOARD CHESS BLOG 
+// DASHBOARD CHESS BLOG
+// DASHBOARD CHESS BLOG
+// DASHBOARD CHESS BLOG

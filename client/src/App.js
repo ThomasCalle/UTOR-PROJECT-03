@@ -15,7 +15,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Profile from "./components/Profile";
+import MyEvents from "./components/MyEvents";
 import Contact from "./components/Contact";
 
 // Add a Donation component
@@ -59,8 +59,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/profile/:userId" element={<Profile />} /> {/* Temp */}
-            {/* ADD MORE ROUTES AS WE NEED THEM */}
+            <Route path="/myEvents" element={<MyEvents />} />
             <Route
               path="*"
               element={<h1 className="display-2">Wrong page!</h1>}

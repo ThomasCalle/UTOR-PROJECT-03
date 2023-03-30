@@ -32,8 +32,8 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   {/* <Nav.Link as={Link} to="/profile"> */}
-                  <Nav.Link onClick={handleClick}>
-                    See Your Events
+                  <Nav.Link as={Link} to="/myEvents">
+                    My Events
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
