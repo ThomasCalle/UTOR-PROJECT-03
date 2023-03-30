@@ -15,14 +15,16 @@ import 'font-awesome/css/font-awesome.min.css';
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Profile from "./components/Profile"; //temp
 
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("id_token"); //save tokens to local storage in (utils/auth?)
-
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem("id_token");
+  // return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
@@ -45,13 +47,14 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/profile/:userId" element={<Profile />} /> {/* Temp */}
             {/* ADD MORE ROUTES AS WE NEED THEM */}
             <Route
               path="*"
               element={<h1 className="display-2">Wrong page!</h1>}
             />
           </Routes>
-          <Footer/>
+          <Footer />
         </div>
       </Router>
     </ApolloProvider>

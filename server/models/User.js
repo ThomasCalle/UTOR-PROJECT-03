@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+      trim: true,
     },
     email: {
       type: String,
@@ -25,10 +26,12 @@ const userSchema = new mongoose.Schema(
       required: true,
       minlength: 8,
     },
-    events: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Event",
-    },
+    events: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Event",
+      },
+    ],
   },
   {
     timestamps: false,
