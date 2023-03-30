@@ -15,7 +15,7 @@ const typeDefs = gql`
     description: String!
     cost: Float!
     location: String!
-    user: User!
+    user: User
     date: String
   }
 
@@ -51,6 +51,7 @@ const typeDefs = gql`
       description: String
       cost: Float
       location: String
+      date: String
     ): Event
     deleteEvent(id: ID!): Boolean
   }
