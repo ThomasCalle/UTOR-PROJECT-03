@@ -12,13 +12,11 @@ const MyEvents = () => {
   console.log(userId)
 
   const { loading, data } = useQuery(GET_ONE_USER, {
-    variables: { id: userId },
+    variables: { userId: userId },
   });
 
-  console.log(data)
- 
-  const {user} = data || [];
-  console.log(user);
+  const {user} =data || [];
+  console.log(user)
 
   return (
     <>
@@ -27,7 +25,7 @@ const MyEvents = () => {
           <h3>still loading</h3>
         </div>
       ) : (
-        <h3>Welcome {data}!</h3>
+        <h3>Welcome {user.username}!</h3>
       )}
     </>
   );
