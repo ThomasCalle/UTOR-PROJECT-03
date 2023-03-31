@@ -10,10 +10,6 @@ const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
 
-   const handleClick = () => {
-     
-   };
-
   return (
     <>
       <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,8 +26,8 @@ const AppNavbar = () => {
               {/* if user is logged in show users events and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  {/* <Nav.Link as={Link} to="/profile"> */}
                   <Nav.Link as={Link} to="/myEvents">
+                    {console.log("navbar run myEvents")}
                     My Events
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
