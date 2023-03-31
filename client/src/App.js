@@ -17,6 +17,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import MyEvents from "./components/MyEvents";
 import CreateEvent from "./components/CreateEvent";
+import AllEvents from "./components/AllEvents";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -50,6 +51,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/myEvents" element={<MyEvents />} />
             <Route path="/createEvent" element={<CreateEvent />} />
+            <Route path="/allEvents" element={<AllEvents />} />
             <Route
               path="*"
               element={<h1 className="display-2">Wrong page!</h1>}
