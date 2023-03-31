@@ -19,35 +19,56 @@ const DonationForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="First Name"
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
-        required
-      />
-      <input
-        type="text"
-        placeholder="Last Name"
-        value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
-        required
-      />
-      <input
-        type="email"
-        placeholder="Email Address"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-      <CardElement />
-      <ReCAPTCHA
-        sitekey="your-recaptcha-site-key"
-        onChange={() => setCaptcha(true)}
-      />
-      <button type="submit">Donate</button>
-    </form>
+    <div className="container">
+      <div className="row justify-content-center">
+        <div className="col-12 col-sm-10 col-md-8 col-lg-6">
+          <form onSubmit={handleSubmit} className="text-center">
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="email"
+                className="form-control"
+                placeholder="Email Address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <CardElement className="my-3" />
+            </div>
+            <div className="form-group">
+              <ReCAPTCHA
+                sitekey="your-recaptcha-site-key"
+                onChange={() => setCaptcha(true)}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Donate
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 };
 

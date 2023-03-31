@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { setContext } from "@apollo/client/link/context";
 import {
@@ -17,17 +17,23 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import Contact from "./components/Contact";
+import CreateEvent from "./components/CreateEvent1";
 
 // Add a Donation component
 function Donation() {
   return (
     <div className="container mt-5">
-      <h2 className="mb-3">Donation</h2>
-      <p>If you'd like to support our work, you can donate using the button below:</p>
-      <button className="btn btn-primary">Donate</button>
+      <div className="row justify-content-center">
+        <div className="col-12 col-sm-10 col-md-8 col-lg-6 text-center">
+          <h2 className="mb-3">Donation</h2>
+          <button className="btn btn-primary">Donate</button>
+          <p>If you'd like to support our work, you can donate using the button below:</p>
+        </div>
+      </div>
     </div>
   );
 }
+
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -52,6 +58,29 @@ const client = new ApolloClient({
 
 
 function App() {
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const savedEvents = JSON.parse(localStorage.getItem("events"));
+    if (savedEvents) {
+      setEvents(savedEvents);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("events", JSON.stringify(events));
+  }, [events]);
+
+  const addEvent = (event) => {
+    setEvents([...events, event]);
+  };
+
+  const deleteEvent = (index) => {
+    const updatedEvents = [...events];
+    updatedEvents.splice(index, 1);
+    setEvents(updatedEvents);
+  };
+
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -66,9 +95,10 @@ function App() {
               element={<h1 className="display-2">Wrong page!</h1>}
             />
           </Routes>
+          <CreateEvent addEvent={addEvent} events={events} />
           <Contact />
           <Donation />
-          <Footer />
+          <Footer events={events} deleteEvent={deleteEvent} />
         </div>
       </Router>
     </ApolloProvider>
