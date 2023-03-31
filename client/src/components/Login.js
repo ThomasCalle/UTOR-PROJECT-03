@@ -16,7 +16,7 @@ const Login = () => {
   // using the login_user mutation and setting it to loginUser
   const [loginUser] = useMutation(LOGIN_USER);
 
-  // save input value in userFromData 
+  // save input value in userFromData
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -39,8 +39,8 @@ const Login = () => {
         throw new Error("something went wrong!");
       }
 
-      console.log(response)
-      const { token } = response.data.login;
+      const { token } = await response.data.login;
+
       Auth.login(token);
     } catch (err) {
       console.error(err);

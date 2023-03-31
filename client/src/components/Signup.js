@@ -42,7 +42,8 @@ const Signup = () => {
       if (!data) {
         throw new Error("something went wrong!");
       }
-      const { token } = await data.createUser.token;
+
+      const token = await data.createUser.token;
 
       Auth.login(token);
     } catch (err) {
