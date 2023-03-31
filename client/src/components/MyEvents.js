@@ -70,10 +70,10 @@ const MyEvents = () => {
                   </Row>
                 </Container>
               </div>
-              {/* remember to link add event properly */}
+              {/* links to create event on click */}
               <Button
                 as={Link}
-                to="/addEvent"
+                to="/createEvent"
                 variant="primary"
                 className="rounded-circle d-flex justify-content-center align-items-center"
                 style={{
