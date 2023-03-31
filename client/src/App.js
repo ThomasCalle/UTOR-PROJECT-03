@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import MyEvents from "./components/MyEvents";
 import Contact from "./components/Contact";
 import CreateEvent from "./components/CreateEvent";
+import AllEvents from "./components/AllEvents";
 
 // Add a Donation component
 function Donation() {
@@ -62,6 +63,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/myEvents" element={<MyEvents />} />
             <Route path="/createEvent" element={<CreateEvent />} />
+            <Route path="/allEvents" element={<AllEvents />} />
             <Route
               path="*"
               element={<h1 className="display-2">Wrong page!</h1>}
