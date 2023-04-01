@@ -9,8 +9,8 @@ import {
   faPenToSquare,
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
+import calendar from "../assets/calendar.jpg";
 
-import placeholder from "../assets/placeholder.png";
 import { DELETE_EVENT } from "../utils/mutations";
 import { GET_ONE_USER } from "../utils/queries";
 import Auth from "../utils/auth";
@@ -100,12 +100,17 @@ const MyEvents = () => {
                               onMouseLeave={() => onLeave(null)}
                               style={{ width: "18rem" }}
                             >
-                              <Card.Img
+                              {/* <Card.Img
                                 variant="top"
                                 src={placeholder}
                                 className="p-2"
-                              />
+                              /> */}
                               {/* update and delete icon appear on hover */}
+                              <img
+                      src={calendar}
+                      alt={event.title}
+                      className="card-img-top"
+                    />
                               {hover === event.id && (
                                 <div style={eventHoverStyle}>
                                   <Button
@@ -165,7 +170,7 @@ const MyEvents = () => {
                 className="rounded-circle d-flex justify-content-center align-items-center"
                 style={{
                   position: "fixed",
-                  bottom: "100px",
+                  bottom: "200px",
                   right: "100px",
                   width: "50px",
                   height: "50px",
