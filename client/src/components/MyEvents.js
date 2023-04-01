@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { Container, Button, Card, Row, Col, Circle } from "react-bootstrap";
+import { Container, Button, Card, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
@@ -27,7 +27,7 @@ const MyEvents = () => {
     setHover(null);
   };
 
-  const [deleteEvent, { deleteError }] = useMutation(DELETE_EVENT);
+  const [deleteEvent] = useMutation(DELETE_EVENT);
 
   const handleDeleteEvent = async (eventId) => {
     try {
@@ -135,7 +135,7 @@ const MyEvents = () => {
                                 {/* Remember to link proper event details page */}
                                 <Button
                                   as={Link}
-                                  to="/eventDetail"
+                                  to={`/eventDetails/${event.id}`}
                                   variant="primary"
                                 >
                                   more details
