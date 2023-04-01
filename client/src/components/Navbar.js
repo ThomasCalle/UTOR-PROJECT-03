@@ -125,7 +125,6 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to="/myEvents">
-                    {console.log("navbar run myEvents")}
                     My Events
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>

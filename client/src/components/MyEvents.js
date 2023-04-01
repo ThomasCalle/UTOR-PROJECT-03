@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
 import { Container, Button, Card, Row, Col, Circle } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import placeholder from "../assets/placeholder.png";
+import { DELETE_EVENT } from "../utils/mutations";
 import { GET_ONE_USER } from "../utils/queries";
 import Auth from "../utils/auth";
 
@@ -23,6 +25,20 @@ const MyEvents = () => {
 
   const onLeave = () => {
     setHover(null);
+  };
+
+  const [deleteEvent, { deleteError }] = useMutation(DELETE_EVENT);
+
+  const handleDeleteEvent = async (eventId) => {
+    try {
+      await deleteEvent({
+        variables: {
+          deleteEventId: eventId,
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   //getting the loggedin user's ID
@@ -92,13 +108,20 @@ const MyEvents = () => {
                               {/* update and delete icon appear on hover */}
                               {hover === event.id && (
                                 <div style={eventHoverStyle}>
-                                  <Button variant="link" as={Link} to="/update">
+                                  <Button
+                                    variant="link"
+                                    as={Link}
+                                    to={`/updateEvent/${event.id}`}
+                                  >
                                     <FontAwesomeIcon
                                       icon={faPenToSquare}
                                       size="2x"
                                     />
                                   </Button>
-                                  <Button variant="link" as={Link} to="/delete">
+                                  <Button
+                                    variant="link"
+                                    onClick={() => handleDeleteEvent(event.id)}
+                                  >
                                     <FontAwesomeIcon
                                       icon={faTrashCan}
                                       size="2x"
