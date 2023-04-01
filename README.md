@@ -24,6 +24,20 @@ Welcome to the JDT Event Manager, a MERN stack single-page application that allo
 
 ## The Challenge:
 
+## The Challenge
+
+The challenge for our team was to develop a comprehensive event management application that offers a user-friendly interface and extensive functionality. The application needed to enable users to create, edit, and manage their events while also providing the ability to discover and attend events created by others. Our application ensures a seamless user experience, offering secure, responsive, and accessible features across various devices and screen sizes.
+
+Our objectives for this challenge were as follows:
+
+1. Authentication, allowing users to sign up, log in, and log out securely.
+2. Enable users to create, add, delete, and edit events, details include: location, date, time, and category.
+3. Allow users to browse and filter events created by other users based on specific criteria such as location, date, time, and category.
+4. Provide featurse for users to mark attendance at events view the events they are attending.
+5. Ensure that the application is responsive and accessible on various devices and screen sizes.
+
+Addressing these objectives, our teamed delivered an event management platform that met the needs of both event organizers and attendees, thus streamlining the event planning and participation process.
+
 
 ## Assigned User Story:
 ```
@@ -70,7 +84,7 @@ The application is accessible on various devices and screen sizes.
 
 ## Screenshots:
 ### Figure 1. Screenshot.
-![](/Public/assets/images/) 
+![](./client/src/assets/images/UTOR-PROJECT-03-WIREFRAME.png)
 
 ## Installation Process:
 1. Clone the Repository from GitHub (or) Download Zip Folder from Repository from GitHub.
@@ -110,7 +124,6 @@ The application is accessible on various devices and screen sizes.
 3. Utilizing MongoDB and Mongoose ODM for database management.
 4. Implemented user authentication using JWT.
 5. Deploying a full MERN stack application on Heroku.
-6. One of favourite anime character quotes is from Son Goku, and his quote about power: "Power comes in response to a need, not a desire. You have to create that need." Being physical strong or and capable in abilities does not matter, but rather abou having a purpose or motivation to use that power. Power is not something that can be attained simply by wanting it, but must be earned through hard work and determination.
 
 ### Continued Development:
 1. Intellect, Discipline & Strength.
@@ -120,7 +133,6 @@ The application is accessible on various devices and screen sizes.
 5. Integrate a map view to display the location of events.
 6. Add social media sharing functionality to promote events.
 7. Implement event ratings and reviews.
-
 
 
 ## License & Copyright ©
@@ -158,5 +170,4 @@ Until next, adios!
 
 # Temporary Section, Team Resources
 - GoogleDoc Resources [Click link](https://docs.google.com/presentation/d/1xSmSx6JI7Qkwi-ORK2tc_wBxWhYAXE715pcw2VL5_o4/edit?usp=sharing)
-- 
 
