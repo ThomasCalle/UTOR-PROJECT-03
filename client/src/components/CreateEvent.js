@@ -125,7 +125,7 @@ const CreateEvent = () => {
                 placeholder="Event Date"
                 required
               />
-              <Button type="submit" variant="success" size="lg">
+              <Button type="submit" variant="success" size="lg"  >
                 Create Event
               </Button>
             </Col>
