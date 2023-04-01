@@ -92,7 +92,7 @@ const MyEvents = () => {
                               {/* update and delete icon appear on hover */}
                               {hover === event.id && (
                                 <div style={eventHoverStyle}>
-                                  <Button variant="link" as={Link} to="/update">
+                                  <Button variant="link" as={Link} to={`/updateEvent/${event.id}`}>
                                     <FontAwesomeIcon
                                       icon={faPenToSquare}
                                       size="2x"
