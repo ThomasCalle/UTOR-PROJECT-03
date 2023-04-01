@@ -84,7 +84,7 @@ The application is accessible on various devices and screen sizes.
 
 ## Screenshots:
 ### Figure 1. Screenshot.
-![](./client/src/assets/images/Wireframe_Jocelynn.jpg)
+![](./client/src/assets/images/UTOR-PROJECT-03-WIREFRAME.png)
 
 ## Installation Process:
 1. Clone the Repository from GitHub (or) Download Zip Folder from Repository from GitHub.

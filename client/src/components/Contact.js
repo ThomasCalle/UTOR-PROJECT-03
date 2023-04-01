@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './contact.css';
+import './style.css';
 
 function Contact() {
     return (
