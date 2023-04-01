@@ -43,3 +43,57 @@
   box-shadow: 0 0 5px #8b5cf6, 0 0 10px #8b5cf6, 0 0 20px #8b5cf6;
 }
 
+/* DEPLOYED APPLICATION RESPONSIVE @MEDIA BEGGINING */
+/* Tablets in landscape mode */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    min-height: 150vh;
+  }
+}
+
+/* Smartphones and tablets in portrait mode */
+@media screen and (max-width: 767px) {
+  body {
+    min-height: 200vh;
+  }
+}
+
+/* Large desktop screens */
+@media screen and (min-width: 1200px) {
+  body {
+    min-height: 100vh;
+  }
+}
+
+/* High-resolution displays */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-resolution: 192dpi) {
+}
+
+@media (color-gamut: srgb) {
+}
+/* DEPLOYED APPLICATION RESPONSIVE @MEDIA END */
+
+
+/* APPLICATION DISPLAY @MEDIA BEGINING */
+/* Screens with an sRGB COLOR GAMUT */
+@media (color-gamut: srgb) {
+}
+
+/* DARK MODE */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333;
+    color: #f1f1f1;
+  }
+}
+
+/* COLOR BLINDNESS */
+@media (forced-colors: active) {
+  body {
+    forced-color-adjust: none;
+    background-color: canvas;
+    color: text;
+  }
+}
+/* APPLICATION DISPLAY @MEDIA END */
