@@ -1,8 +1,6 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  scalar Date
-  
   type User {
     id: ID
     username: String
@@ -18,7 +16,7 @@ const typeDefs = gql`
     cost: Float!
     location: String!
     user: User
-    date: Date
+    date: String
   }
 
   type Auth {
@@ -43,7 +41,7 @@ const typeDefs = gql`
       cost: Float!
       location: String!
       user: ID!
-      date: Date!
+      date: String!
     ): Event
     updateEvent(
       id: ID!
@@ -51,7 +49,7 @@ const typeDefs = gql`
       description: String
       cost: Float
       location: String
-      date: Date
+      date: String
     ): Event
     deleteEvent(id: ID!): Boolean
   }

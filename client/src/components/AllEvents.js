@@ -41,7 +41,7 @@ const AllEvents = () => {
                     </div>
                     <div className="mb-1">
                       <span className="fw-bold me-1">Date:</span>
-                      {new Date(event.date).toLocaleDateString("en-US", {
+                      {new Date(parseInt(event.date)).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "short",
                         day: "numeric",

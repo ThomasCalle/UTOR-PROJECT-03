@@ -43,7 +43,8 @@ const EventDetails = () => {
 
   useEffect(() => {
     if (!loading) {
-      const timeStamp = data.event.date;
+      console.log(data);
+      const timeStamp = parseInt(data.event.date);
       const date = new Date(timeStamp);
       const dateString = date.toLocaleDateString();
       const timeString = date.toLocaleTimeString();
@@ -55,7 +56,7 @@ const EventDetails = () => {
         date: dateString,
         time: timeString,
       });
-      setCountDown(date);
+      setCountDown(timeStamp);
     }
   }, [loading]);
 
