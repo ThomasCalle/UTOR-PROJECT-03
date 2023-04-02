@@ -46,31 +46,55 @@ const EventDetails = () => {
         date: dateString,
         time: timeString,
       });
-      // setCountDown(timeStamp);
+      setCountDown(timeStamp);
     }
   }, [loading]);
 
-  // // countdown
-  // useEffect(() => {
-  //   if (!countDown) return;
-  //   const now = new Date();
+  // countdown
+  useEffect(() => {
+    if (!countDown) return;
 
-  //   // save intervalId to clear the interval when the component re-renders
-  //   const intervalId = setInterval(() => {
-  //     setCountDown(countDown - 1);
-  //   }, 1000);
+    //current date and time in milliseconds
+    const now = new Date().getTime();
 
-  //   const timeDifference = intervalId.getTime() - now.getTime();
+    // minus one from countDown each second
+    const intervalId = setInterval(() => {
+      setCountDown(countDown - 1);
+    }, 1000);
 
-  //   const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    // time difference
+    const timeDifference = countDown - now;
 
-  //   console.log(daysLeft);
-  //   // const dateString = date.toLocaleDateString();
-  //   // const timeString = date.toLocaleTimeString();
+    // difference in days
+    const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
-  //   // clear interval on re-render
-  //   return () => clearInterval(intervalId);
-  // }, [countDown]);
+    //difference in hours
+    const hoursLeft = Math.floor(
+      timeDifference / (1000 * 60 * 60) - daysLeft * 24
+    );
+
+    //difference in minutes
+    const minutesLeft = Math.floor(
+      timeDifference / (1000 * 60) - (daysLeft * 24 * 60 + hoursLeft * 60)
+    );
+
+    //difference in seconds
+    const secondsLeft = Math.floor(
+      timeDifference / 1000 -
+        (daysLeft * 24 * 60 * 60 + hoursLeft * 60 * 60 + minutesLeft * 60)
+    );
+
+    //save it in countDownFormat
+    setCountDownFormat({
+      days: daysLeft,
+      hours: hoursLeft,
+      minutes: minutesLeft,
+      seconds: secondsLeft,
+    });
+
+    // clear interval on re-render
+    return () => clearInterval(intervalId);
+  }, [countDown]);
 
   const countDownStyle = {
     height: "300px",
@@ -87,10 +111,51 @@ const EventDetails = () => {
 
   return (
     <>
+      {/* countdown timer goes here */}
       <Container fluid style={countDownStyle}>
-        {/* countdown timer goes here */}
-        {countDown}
+        {countDownFormat.days}
+        {countDownFormat.hours}
+        {countDownFormat.minutes}
+        {countDownFormat.seconds}
+        <Container>
+          <Row className="justify-content-center">
+            <Col md={4} className="text-center">
+              <div className="countdown-item">
+                <div className="countdown-number"> {countDownFormat.days}</div>
+                <div className="countdown-label">Days</div>
+              </div>
+            </Col>
+            <Col md={4} className="text-center">
+              <div className="countdown-item">
+                <div className="countdown-number"> {countDownFormat.hours}</div>
+                <div className="countdown-label">Hours</div>
+              </div>
+            </Col>
+            <Col md={4} className="text-center">
+              <div className="countdown-item">
+                <div className="countdown-number">
+                  {" "}
+                  {countDownFormat.minutes}
+                </div>
+                <div className="countdown-label">Minutes</div>
+              </div>
+            </Col>
+          </Row>
+          <Row className="justify-content-center">
+            <Col md={12} className="text-center">
+              <div className="countdown-item">
+                <div className="countdown-number">
+                  {" "}
+                  {countDownFormat.seconds}
+                </div>
+                <div className="countdown-label">Seconds</div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
       </Container>
+
+      {/* event details: */}
       <Container>
         <ButtonGroup className="w-100">
           <Button style={buttonStyle}>Date: {eventData.date}</Button>
@@ -111,7 +176,7 @@ const EventDetails = () => {
             <Col md={6}>
               <Card.Img
                 variant="top"
-                className="border-0 p-3"
+                className="border-0 p-3 h-100"
                 src={placeholder}
               />
             </Col>
