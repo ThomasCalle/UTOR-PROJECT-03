@@ -13,6 +13,8 @@ import {
   Row,
   Alert,
   ButtonGroup,
+  Stack,
+  OverlayTrigger,
 } from "react-bootstrap";
 
 const EventDetails = () => {
@@ -112,47 +114,46 @@ const EventDetails = () => {
   return (
     <>
       {/* countdown timer goes here */}
-      <Container fluid style={countDownStyle}>
-        {countDownFormat.days}
-        {countDownFormat.hours}
-        {countDownFormat.minutes}
-        {countDownFormat.seconds}
-        <Container>
+      <Container fluid style={countDownStyle} className="text-center p-5 text-white">
+        <h2 className="p-2">GET EXCITED! {eventData.title.toUpperCase()} COMING SOON!</h2>
+        <Stack
+          direction="horizontal"
+          gap={3}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            fontSize: "40px",
+            color: "white",
+          }}
+        >
           <Row className="justify-content-center">
-            <Col md={4} className="text-center">
-              <div className="countdown-item">
-                <div className="countdown-number"> {countDownFormat.days}</div>
-                <div className="countdown-label">Days</div>
+            <Col className="text-center">
+              <div>
+                <div> {countDownFormat.days}</div>
+                <div style={{ fontSize: "25px" }}>Days</div>
               </div>
             </Col>
-            <Col md={4} className="text-center">
-              <div className="countdown-item">
-                <div className="countdown-number"> {countDownFormat.hours}</div>
-                <div className="countdown-label">Hours</div>
+            <Col className="text-center">
+              <div>
+                <div> {countDownFormat.hours}</div>
+                <div style={{ fontSize: "25px" }}>Hours</div>
               </div>
             </Col>
-            <Col md={4} className="text-center">
-              <div className="countdown-item">
-                <div className="countdown-number">
-                  {" "}
-                  {countDownFormat.minutes}
-                </div>
-                <div className="countdown-label">Minutes</div>
+            <Col className="text-center">
+              <div>
+                <div>{countDownFormat.minutes}</div>
+                <div style={{ fontSize: "25px" }}>Minutes</div>
+              </div>
+            </Col>
+            <Col className="text-center">
+              <div>
+                <div>{countDownFormat.seconds}</div>
+                <div style={{ fontSize: "25px" }}>Seconds</div>
               </div>
             </Col>
           </Row>
-          <Row className="justify-content-center">
-            <Col md={12} className="text-center">
-              <div className="countdown-item">
-                <div className="countdown-number">
-                  {" "}
-                  {countDownFormat.seconds}
-                </div>
-                <div className="countdown-label">Seconds</div>
-              </div>
-            </Col>
-          </Row>
-        </Container>
+        </Stack>
       </Container>
 
       {/* event details: */}

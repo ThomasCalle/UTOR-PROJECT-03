@@ -2,7 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { Container, Button, Card, Row, Col } from "react-bootstrap";
+import {
+  Container,
+  Button,
+  Card,
+  Row,
+  Col,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlus,
@@ -156,40 +164,32 @@ const MyEvents = () => {
               )}
             </div>
             {/* link to create event on click */}
-            <Button
-              as={Link}
-              to="/createEvent"
-              variant="primary"
-              className="rounded-circle d-flex justify-content-center align-items-center"
-              style={{
-                position: "fixed",
-                bottom: "100px",
-                right: "100px",
-                width: "50px",
-                height: "50px",
-              }}
-              key="addEventBtn"
-              onMouseEnter={() => onHover("addEventBtn")}
-              onMouseLeave={() => onLeave(null)}
+            <OverlayTrigger
+              overlay={
+                <Tooltip id="tooltip-disabled">
+                  Create New Event!
+                </Tooltip>
+              }
             >
-              <FontAwesomeIcon icon={faPlus} size="2x" />
-              {/* hover not working yet but it's not a main functionality */}
-              {hover === "#addEventBtn" && (
-                <h2
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: "40%",
-                    zIndex: "2",
-                  }}
-                >
-                  {console.log("here")}
-                  hello
-                </h2>
-              )}
-            </Button>
+              <Button
+                as={Link}
+                to="/createEvent"
+                variant="primary"
+                className="rounded-circle d-flex justify-content-center align-items-center"
+                style={{
+                  position: "fixed",
+                  bottom: "100px",
+                  right: "100px",
+                  width: "50px",
+                  height: "50px",
+                }}
+                key="addEventBtn"
+                onMouseEnter={() => onHover("addEventBtn")}
+                onMouseLeave={() => onLeave(null)}
+              >
+                <FontAwesomeIcon icon={faPlus} size="2x" />
+              </Button>
+            </OverlayTrigger>
           </div>
         </Container>
       </>
