@@ -1,6 +1,8 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+  scalar Date
+  
   type User {
     id: ID
     username: String
@@ -16,7 +18,7 @@ const typeDefs = gql`
     cost: Float!
     location: String!
     user: User
-    date: String
+    date: Date
   }
 
   type Auth {
@@ -34,8 +36,6 @@ const typeDefs = gql`
   type Mutation {
     createUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    # updateUser(id: ID!, username: String, email: String, password: String): User
-    # deleteUser(id: ID!): Boolean
 
     createEvent(
       title: String!
@@ -43,7 +43,7 @@ const typeDefs = gql`
       cost: Float!
       location: String!
       user: ID!
-      date: String!
+      date: Date!
     ): Event
     updateEvent(
       id: ID!
@@ -51,7 +51,7 @@ const typeDefs = gql`
       description: String
       cost: Float
       location: String
-      date: String
+      date: Date
     ): Event
     deleteEvent(id: ID!): Boolean
   }
@@ -61,4 +61,5 @@ const typeDefs = gql`
     mutation: Mutation
   }
 `;
+
 module.exports = typeDefs;
