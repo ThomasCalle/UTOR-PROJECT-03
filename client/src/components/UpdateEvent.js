@@ -72,8 +72,12 @@ const UpdateEvent = () => {
               Your Event has been successfully updated!
             </Alert.Heading>
             <div className="d-flex justify-content-center">
-              <Button as={Link} to="/myEvents" variant="outline-success">
-                Take me back to My Events
+              <Button
+                as={Link}
+                to={`/eventDetails/${eventId}`}
+                variant="outline-success"
+              >
+                View Your Event
               </Button>
             </div>
           </Alert>

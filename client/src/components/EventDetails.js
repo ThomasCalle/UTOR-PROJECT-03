@@ -18,7 +18,15 @@ import {
 } from "react-bootstrap";
 
 const EventDetails = () => {
-  const [eventData, setEventData] = useState({});
+  const [eventData, setEventData] = useState({
+    title: "",
+    description: "",
+    cost: 0,
+    location: "",
+    date: "",
+    time: 0,
+  });
+
   const [countDown, setCountDown] = useState();
   const [countDownFormat, setCountDownFormat] = useState({
     days: 0,
@@ -114,8 +122,14 @@ const EventDetails = () => {
   return (
     <>
       {/* countdown timer goes here */}
-      <Container fluid style={countDownStyle} className="text-center p-5 text-white">
-        <h2 className="p-2">GET EXCITED! {eventData.title.toUpperCase()} COMING SOON!</h2>
+      <Container
+        fluid
+        style={countDownStyle}
+        className="text-center p-5 text-white"
+      >
+        <h2 className="p-2">
+          GET EXCITED! {eventData.title.toUpperCase()} COMING SOON!
+        </h2>
         <Stack
           direction="horizontal"
           gap={3}

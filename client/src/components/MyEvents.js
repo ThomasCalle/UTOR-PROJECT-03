@@ -87,7 +87,7 @@ const MyEvents = () => {
             <h3>Welcome {user.username}!</h3>
             <div>
               {/* conditional rendering if the user has events */}
-              {events ? (
+              {events.length > 0 ? (
                 <>
                   <h4 className="mt-5">Here are your Events:</h4>
                   <p>To edit or delete events, hover over the image</p>
@@ -166,9 +166,7 @@ const MyEvents = () => {
             {/* link to create event on click */}
             <OverlayTrigger
               overlay={
-                <Tooltip id="tooltip-disabled">
-                  Create New Event!
-                </Tooltip>
+                <Tooltip id="tooltip-disabled">Create New Event!</Tooltip>
               }
             >
               <Button
