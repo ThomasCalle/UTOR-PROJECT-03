@@ -29,6 +29,7 @@ const EventDetails = () => {
 
   const [countDown, setCountDown] = useState();
   const [countDownFormat, setCountDownFormat] = useState({
+    timeRemaining: 0,
     days: 0,
     hours: 0,
     minutes: 0,
@@ -75,32 +76,44 @@ const EventDetails = () => {
     // time difference
     const timeDifference = countDown - now;
 
-    // difference in days
-    const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    if (timeDifference <= 0) {
+      //save it in countDownFormat
+      setCountDownFormat({
+        timeRemaining: 0,
+        days: 0,
+        hours: 0,
+        minutes: 0,
+        seconds: 0,
+      });
+    } else {
+      // difference in days
+      const daysLeft = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 
-    //difference in hours
-    const hoursLeft = Math.floor(
-      timeDifference / (1000 * 60 * 60) - daysLeft * 24
-    );
+      //difference in hours
+      const hoursLeft = Math.floor(
+        timeDifference / (1000 * 60 * 60) - daysLeft * 24
+      );
 
-    //difference in minutes
-    const minutesLeft = Math.floor(
-      timeDifference / (1000 * 60) - (daysLeft * 24 * 60 + hoursLeft * 60)
-    );
+      //difference in minutes
+      const minutesLeft = Math.floor(
+        timeDifference / (1000 * 60) - (daysLeft * 24 * 60 + hoursLeft * 60)
+      );
 
-    //difference in seconds
-    const secondsLeft = Math.floor(
-      timeDifference / 1000 -
-        (daysLeft * 24 * 60 * 60 + hoursLeft * 60 * 60 + minutesLeft * 60)
-    );
+      //difference in seconds
+      const secondsLeft = Math.floor(
+        timeDifference / 1000 -
+          (daysLeft * 24 * 60 * 60 + hoursLeft * 60 * 60 + minutesLeft * 60)
+      );
 
-    //save it in countDownFormat
-    setCountDownFormat({
-      days: daysLeft,
-      hours: hoursLeft,
-      minutes: minutesLeft,
-      seconds: secondsLeft,
-    });
+      //save it in countDownFormat
+      setCountDownFormat({
+        timeRemaining: timeDifference,
+        days: daysLeft,
+        hours: hoursLeft,
+        minutes: minutesLeft,
+        seconds: secondsLeft,
+      });
+    }
 
     // clear interval on re-render
     return () => clearInterval(intervalId);
@@ -127,9 +140,20 @@ const EventDetails = () => {
         style={countDownStyle}
         className="text-center p-5 text-white"
       >
-        <h2 className="p-2">
-          GET EXCITED! {eventData.title.toUpperCase()} COMING SOON!
-        </h2>
+        {countDownFormat.timeRemaining > 0 ? (
+          <h2 className="p-2">
+            GET EXCITED! {eventData.title.toUpperCase()} COMING SOON!
+          </h2>
+        ) : (
+          <>
+            <h2 className="p-2">
+              {eventData.title.toUpperCase()} HAS ALREADY PASSED!
+            </h2>
+            <a href="/allEvents" style={{ color: "white" }}>
+              check out all events to see more
+            </a>
+          </>
+        )}
         <Stack
           direction="horizontal"
           gap={3}
