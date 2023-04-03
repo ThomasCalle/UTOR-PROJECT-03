@@ -29,6 +29,7 @@ export const GET_ONE_USER = gql`
         description
         cost
         location
+        date
       }
     }
   }

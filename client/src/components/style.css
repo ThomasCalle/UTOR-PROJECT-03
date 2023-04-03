@@ -4,16 +4,17 @@
   --AppleFont: 'SF Pro Display', sans-serif;
 }
 /* BACKGROUND */
-body {
+
+.home-container{
   display: block;
-  background-repeat: no-repeat;
-  background-size: cover;
-  justify-content: center;
-  align-items: center;
-  max-width: 100%;
-  height: auto;
-  background-image: url(../assets/images/NewOrangeBackground.png);
-  background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: auto;
+    background-position: center;
+    background-image: url(../assets/images/NewOrangeBackground.png);
 }
 
 /* COMPONENT/CONTACT START*/
