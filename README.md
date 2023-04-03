@@ -1,4 +1,4 @@
-# UTOR-PROJECT-03 by Jocelyn, Devarsh & Thomas
+# UTOR-PROJECT-03 JDT Events by Jocelyn, Devarsh & Thomas
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -64,7 +64,7 @@ The application is accessible on various devices and screen sizes.
 ### Figure 1. GIF.
 
 #### The following animation demonstrates the application functionality:(Coming Soon)
-![](./Public/assets/images/)
+![](./client/src/assets/images/JDT_EventWorker.GIF)
 
 ## Usage Instructions:
 1. Sign up or log in to access the JDT Event Manager application securely.
@@ -72,14 +72,12 @@ The application is accessible on various devices and screen sizes.
 3. Browse and filter events created by other users based on criteria like location, date, time, and category.
 4. Mark your attendance for events and view the list of events you are attending.
 
-## Deployed Application Link:
-[Deployed Application Link:](https://github.com/ThomasCalle/UTOR-PROJECT-03)
+## Deployed Herok Application Link:
+[Deployed Heroku Application Link:](https://jdt-events.herokuapp.com/)
 
 ## GitHub Repository:
 [GitHub Repository:](https://github.com/ThomasCalle/UTOR-PROJECT-03)
 
-## YouTube Walkthrough Video:
-[Click Here to Watch](https://www.youtube.com/watch?v=TtLm6rTZ11I)
 
 ## Screenshots:
 ### Figure 1. WIREFRAME Screenshot.
@@ -170,7 +168,3 @@ Follow me on Github at [Jocelynn](https://github.com/jjocelynn), [Dave](https://
 Until next, adios!
 
 © 2023 [Jocelynn](https://github.com/jjocelynn), [Dave](https://github.com/devarsh2395) & [Thomas](https://github.com/ThomasCalle). Confidential and Proprietary. All Rights Reserved.
-
-# Temporary Section, Team Resources
-- GoogleDoc Resources [Click link](https://docs.google.com/presentation/d/1xSmSx6JI7Qkwi-ORK2tc_wBxWhYAXE715pcw2VL5_o4/edit?usp=sharing)
-
