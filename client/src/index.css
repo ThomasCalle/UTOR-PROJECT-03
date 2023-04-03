@@ -23,7 +23,7 @@ code {
 
 /* Page title */
 .home-title {
-  color: #3FF5454;
+  color: white;
   text-align: center;
   padding: 20px;
   margin-top: 20px solid #C15CFF;
@@ -57,7 +57,7 @@ code {
 }
 
 .donation-button {
-  background-color: #3FF5454;
+  background-color: #2dd833;
   /* color: white; */
   border: none;
   border-radius: 5px;
@@ -90,7 +90,7 @@ code {
 }
 
 .contact-form input[type="submit"] {
-  background-color: #3FF5454;
+  background-color: #3FF545;
   color: white;
   border: none;
   border-radius: 5px;
@@ -136,7 +136,7 @@ code {
 
 /* Footer */
 .footer {
-  background-color: #343a40;
+  background-color: #0f0e0e00;
   padding: 1rem ;
 }
 
