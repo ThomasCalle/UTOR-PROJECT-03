@@ -33,7 +33,7 @@ const AppNavbar = () => {
                 Home
               </Nav.Link>
               {/* Add a link to all events */}
-              <Nav.Link as={Link} to="/allevents">
+              <Nav.Link as={Link} to="/allEvents">
                 All Events
               </Nav.Link>
               {/* if user is logged in show users events and logout */}
@@ -96,10 +96,20 @@ const AppNavbar = () => {
             <Modal.Title id="signup-modal">
               <Nav variant="pills">
                 <Nav.Item>
-                  <Nav.Link eventKey="login">Login</Nav.Link>
+                  <Nav.Link
+                    eventKey="login"
+                    style={{ backgroundColor: "#6495ed" }}
+                  >
+                    Login
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="signup">Sign Up</Nav.Link>
+                  <Nav.Link
+                    eventKey="signup"
+                    style={{ backgroundColor: "#6495ed" }}
+                  >
+                    Sign Up
+                  </Nav.Link>
                 </Nav.Item>
               </Nav>
             </Modal.Title>
