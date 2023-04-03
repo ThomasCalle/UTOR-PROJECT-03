@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
+import { Navbar, Nav, Container, Modal, Tab, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 
 import Signup from "./Signup";
 import Login from "./Login";
@@ -9,10 +11,17 @@ import Auth from "../utils/auth";
 const AppNavbar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
+  // Add state for theme
+  const [theme, setTheme] = useState("dark");
+
+  // Function to toggle theme
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
     <>
-      <Navbar className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <Navbar className={`navbar navbar-expand-lg navbar-${theme} bg-${theme}`}>
         <Container fluid>
           <Navbar.Brand className="navbar-brand fs-2" as={Link} to="/">
             JDT EventWorks
@@ -40,6 +49,24 @@ const AppNavbar = () => {
                   Login/Sign Up
                 </Nav.Link>
               )}
+              {/* Add theme toggle button */}
+              <Button
+                variant={theme === "dark" ? "outline-light" : "outline-dark"}
+                onClick={toggleTheme}
+                className="ml-2"
+              >
+                {theme === "dark" ? (
+                  <FontAwesomeIcon
+                    icon={faSun}
+                    style={{ color: theme === "dark" ? "white" : "black" }}
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faMoon}
+                    style={{ color: theme === "dark" ? "white" : "black" }}
+                  />
+                )}
+              </Button>
             </Nav>
           </Navbar.Collapse>
         </Container>
