@@ -24,37 +24,14 @@ const AllEvents = () => {
             <div key={event.id} className="col">
               <Link
                 to={`/eventDetails/${event.id}`}
-                style={{ textDecoration: "none", color: "black" }}
+                style={{ textDecoration: "none", color: "black"}}
               >
                 <div className="card h-100">
-                  {parseInt(event.date) > new Date().getTime() ? (
-                    <img
-                      src={notebookImage}
-                      className="card-img-top"
-                      alt={event.title}
-                    />
-                  ) : (
-                    <div style={{ position: "relative" }}>
-                      <img
-                        src={notebookImage}
-                        className="card-img-top"
-                        alt={event.title}
-                        style={{ filter: "brightness(25%)" }}
-                      />
-                      <p
-                        style={{
-                          position: "absolute",
-                          top: "50%",
-                          left: "50%",
-                          transform: "translate(-50%, -50%)",
-                          zIndex: 1,
-                          color: "white",
-                        }}
-                      >
-                        This Event is over
-                      </p>
-                    </div>
-                  )}
+                  <img
+                    src={notebookImage}
+                    className="card-img-top"
+                    alt={event.title}
+                  />
                   <div className="card-body">
                     <h5 className="card-title">{event.title}</h5>
                     <p className="card-text">{event.description}</p>
@@ -64,14 +41,11 @@ const AllEvents = () => {
                     </div>
                     <div className="mb-1">
                       <span className="fw-bold me-1">Date:</span>
-                      {new Date(parseInt(event.date)).toLocaleDateString(
-                        "en-US",
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        }
-                      )}
+                      {new Date(parseInt(event.date)).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
                     </div>
                     <div className="text-muted">
                       {event.user ? "Organized by " + event.user.username : ""}

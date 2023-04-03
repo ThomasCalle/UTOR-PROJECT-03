@@ -107,34 +107,11 @@ const MyEvents = () => {
                                 className="p-2"
                               /> */}
                             {/* update and delete icon appear on hover */}
-                            {parseInt(event.date) > new Date().getTime() ? (
-                              <img
-                                src={calendar}
-                                alt={event.title}
-                                className="card-img-top"
-                              />
-                            ) : (
-                              <div style={{ position: "relative" }}>
-                                <img
-                                  src={calendar}
-                                  alt={event.title}
-                                  className="card-img-top"
-                                  style={{ filter: "brightness(25%)" }}
-                                />
-                                <p
-                                  style={{
-                                    position: "absolute",
-                                    top: "50%",
-                                    left: "50%",
-                                    transform: "translate(-50%, -50%)",
-                                    zIndex: 1,
-                                    color: "white",
-                                  }}
-                                >
-                                  This Event is over
-                                </p>
-                              </div>
-                            )}
+                            <img
+                              src={calendar}
+                              alt={event.title}
+                              className="card-img-top"
+                            />
                             {hover === event.id && (
                               <div style={eventHoverStyle}>
                                 <Button
