@@ -63,15 +63,14 @@ The application is accessible on various devices and screen sizes.
 ## GIF:
 ### Figure 1. GIF.
 
-#### The following animation demonstrates the application functionality:
+#### The following animation demonstrates the application functionality:(Coming Soon)
 ![](./Public/assets/images/)
 
 ## Usage Instructions:
-
-1. 
-2. 
-3. 
-4. 
+1. Sign up or log in to access the JDT Event Manager application securely.
+2. Create, add, delete, and edit events by providing necessary details such as location, date, time, and category.
+3. Browse and filter events created by other users based on criteria like location, date, time, and category.
+4. Mark your attendance for events and view the list of events you are attending.
 
 ## Deployed Application Link:
 [Deployed Application Link:](https://github.com/ThomasCalle/UTOR-PROJECT-03)
@@ -83,8 +82,12 @@ The application is accessible on various devices and screen sizes.
 [Click Here to Watch](https://www.youtube.com/watch?v=TtLm6rTZ11I)
 
 ## Screenshots:
-### Figure 1. Screenshot.
+### Figure 1. WIREFRAME Screenshot.
 ![](./client/src/assets/images/UTOR-PROJECT-03-WIREFRAME.png)
+
+## Screenshots:
+### Figure 2. Deployed Application Screenshot.
+![](./client/src/assets/images/JDT_EventWorks.png)
 
 ## Installation Process:
 1. Clone the Repository from GitHub (or) Download Zip Folder from Repository from GitHub.
